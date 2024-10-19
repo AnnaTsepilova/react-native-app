@@ -2,7 +2,7 @@ import { useState } from "react";
 import {
   Alert,
   Dimensions,
-  Image,
+  ImageBackground,
   Keyboard,
   KeyboardAvoidingView,
   Platform,
@@ -12,9 +12,12 @@ import {
   TouchableWithoutFeedback,
   View,
 } from "react-native";
+
 import { colors } from "../styles/global";
+
 import Input from "../components/Input";
 import Button from "../components/Button";
+import AddIcon from "../assets/images/svg/AddIcon";
 
 const { width: SCREEN_WIDTH } = Dimensions.get("screen");
 
@@ -22,7 +25,7 @@ const RegistrationScreen = () => {
   const [login, setLogin] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const [isPasswordVisible, setIsPasswordVisible] = useState(true);
 
   const handleLoginChange = (value: string) => {
     setLogin(value);
@@ -41,7 +44,10 @@ const RegistrationScreen = () => {
   };
 
   const onRegister = () => {
-    Alert.alert("Credentials", `${login} + ${email} + ${password}`);
+    Alert.alert(
+      "Credentials",
+      `login: ${login}, email: ${email}, password: ${password}`
+    );
   };
 
   const onLogin = () => {
@@ -50,7 +56,9 @@ const RegistrationScreen = () => {
 
   const showButton = (
     <TouchableOpacity onPress={showPassword}>
-      <Text style={[styles.baseText, styles.passwordButtonText]}>Показати</Text>
+      <Text style={[styles.baseText, styles.passwordButtonText]}>
+        {isPasswordVisible ? "Показати" : "Приховати"}
+      </Text>
     </TouchableOpacity>
   );
 
@@ -60,56 +68,60 @@ const RegistrationScreen = () => {
         style={styles.container}
         behavior={Platform.OS == "ios" ? "padding" : "height"}
       >
-        <Image
+        <ImageBackground
           source={require("../assets/images/bg.png")}
           resizeMode="cover"
           style={styles.image}
-        />
-        <View style={styles.formContainer}>
-          <Text style={styles.title}>Реєстрація</Text>
+        >
+          <View style={styles.formContainer}>
+            <View style={styles.avatarContainer}>
+              <AddIcon width="25" height="25" style={styles.plusIcon}></AddIcon>
+            </View>
+            <Text style={styles.title}>Реєстрація</Text>
 
-          <View style={[styles.innerContainer, styles.inputContainer]}>
-            <Input
-              value={login}
-              autofocus={true}
-              placeholder="Логін"
-              onTextChange={handleLoginChange}
-            />
+            <View style={[styles.innerContainer, styles.inputContainer]}>
+              <Input
+                value={login}
+                autofocus={true}
+                placeholder="Логін"
+                onTextChange={handleLoginChange}
+              />
 
-            <Input
-              value={email}
-              autofocus={true}
-              placeholder="Адреса електронної пошти"
-              onTextChange={handleEmailChange}
-            />
+              <Input
+                value={email}
+                autofocus={true}
+                placeholder="Адреса електронної пошти"
+                onTextChange={handleEmailChange}
+              />
 
-            <Input
-              value={password}
-              placeholder="Пароль"
-              rightButton={showButton}
-              outerStyles={styles.passwordButton}
-              onTextChange={handlePasswordChange}
-              secureTextEntry={isPasswordVisible}
-            />
-          </View>
+              <Input
+                value={password}
+                placeholder="Пароль"
+                rightButton={showButton}
+                outerStyles={styles.passwordButton}
+                onTextChange={handlePasswordChange}
+                secureTextEntry={isPasswordVisible}
+              />
+            </View>
 
-          <View style={[styles.innerContainer, styles.buttonContainer]}>
-            <Button onPress={onRegister}>
-              <Text style={[styles.baseText, styles.buttonText]}>
-                Зареєстуватися
-              </Text>
-            </Button>
+            <View style={[styles.innerContainer, styles.buttonContainer]}>
+              <Button onPress={onRegister}>
+                <Text style={[styles.baseText, styles.buttonText]}>
+                  Зареєстуватися
+                </Text>
+              </Button>
 
-            <View style={styles.loginContainer}>
-              <Text style={[styles.baseText, styles.passwordButtonText]}>
-                Вже є акаунт?&ensp;
-                <TouchableWithoutFeedback onPress={onLogin}>
-                  <Text style={styles.loginText}>Увійти</Text>
-                </TouchableWithoutFeedback>
-              </Text>
+              <View style={styles.loginContainer}>
+                <Text style={[styles.baseText, styles.passwordButtonText]}>
+                  Вже є акаунт?&ensp;
+                  <TouchableWithoutFeedback onPress={onLogin}>
+                    <Text style={styles.loginText}>Увійти</Text>
+                  </TouchableWithoutFeedback>
+                </Text>
+              </View>
             </View>
           </View>
-        </View>
+        </ImageBackground>
       </KeyboardAvoidingView>
     </TouchableWithoutFeedback>
   );
@@ -133,11 +145,8 @@ const styles = StyleSheet.create({
     marginTop: 42,
   },
   image: {
-    position: "absolute",
-    top: 0,
-    bottom: 0,
-    height: "100%",
-    width: "100%",
+    flex: 1,
+    justifyContent: "flex-end",
   },
   formContainer: {
     width: SCREEN_WIDTH,
@@ -147,6 +156,21 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 25,
     paddingHorizontal: 16,
     paddingTop: 92,
+  },
+  avatarContainer: {
+    position: "relative",
+    marginTop: -152,
+    marginBottom: 32,
+    alignSelf: "center",
+    width: 120,
+    height: 120,
+    backgroundColor: colors.light_gray,
+    borderRadius: 16,
+  },
+  plusIcon: {
+    position: "absolute",
+    bottom: 14,
+    right: -12,
   },
   title: {
     fontSize: 30,

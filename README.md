@@ -1,7 +1,7 @@
 ## Завдання
 
 1. Створити екран `PostsScreen`
-2. Створити екран `Create`PostsScreen``
+2. Створити екран `CreatePostsScreen``
 3. Створити екран `CommentsScreen`
 4. Створити екран `ProfileScreen`
 5. Створити екран `MapScreen`

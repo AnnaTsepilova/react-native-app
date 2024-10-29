@@ -1,7 +1,6 @@
 import { useState } from "react";
 import {
   Dimensions,
-  ImageBackground,
   Keyboard,
   KeyboardAvoidingView,
   Platform,
@@ -67,60 +66,54 @@ const RegistrationScreen = () => {
         style={styles.container}
         behavior={Platform.OS == "ios" ? "padding" : "height"}
       >
-        <ImageBackground
-          source={require("../assets/images/bg.png")}
-          resizeMode="cover"
-          style={styles.image}
-        >
-          <View style={styles.formContainer}>
-            <View style={styles.avatarContainer}>
-              <AddIcon width="25" height="25" style={styles.plusIcon}></AddIcon>
-            </View>
-            <Text style={styles.title}>Реєстрація</Text>
+        <View style={styles.formContainer}>
+          <View style={styles.avatarContainer}>
+            <AddIcon width="25" height="25" style={styles.plusIcon}></AddIcon>
+          </View>
+          <Text style={styles.title}>Реєстрація</Text>
 
-            <View style={[styles.innerContainer, styles.inputContainer]}>
-              <Input
-                value={login}
-                autofocus={true}
-                placeholder="Логін"
-                onTextChange={handleLoginChange}
-              />
+          <View style={[styles.innerContainer, styles.inputContainer]}>
+            <Input
+              value={login}
+              autofocus={true}
+              placeholder="Логін"
+              onTextChange={handleLoginChange}
+            />
 
-              <Input
-                value={email}
-                autofocus={true}
-                placeholder="Адреса електронної пошти"
-                onTextChange={handleEmailChange}
-              />
+            <Input
+              value={email}
+              autofocus={true}
+              placeholder="Адреса електронної пошти"
+              onTextChange={handleEmailChange}
+            />
 
-              <Input
-                value={password}
-                placeholder="Пароль"
-                rightButton={showButton}
-                outerStyles={styles.passwordButton}
-                onTextChange={handlePasswordChange}
-                secureTextEntry={isPasswordVisible}
-              />
-            </View>
+            <Input
+              value={password}
+              placeholder="Пароль"
+              rightButton={showButton}
+              outerStyles={styles.passwordButton}
+              onTextChange={handlePasswordChange}
+              secureTextEntry={isPasswordVisible}
+            />
+          </View>
 
-            <View style={[styles.innerContainer, styles.buttonContainer]}>
-              <Button onPress={onRegister}>
-                <Text style={[styles.baseText, styles.buttonText]}>
-                  Зареєстуватися
-                </Text>
-              </Button>
+          <View style={[styles.innerContainer, styles.buttonContainer]}>
+            <Button onPress={onRegister}>
+              <Text style={[styles.baseText, styles.buttonText]}>
+                Зареєстуватися
+              </Text>
+            </Button>
 
-              <View style={styles.loginContainer}>
-                <Text style={[styles.baseText, styles.passwordButtonText]}>
-                  Вже є акаунт?&ensp;
-                  <TouchableWithoutFeedback onPress={onLogin}>
-                    <Text style={styles.blueText}>Увійти</Text>
-                  </TouchableWithoutFeedback>
-                </Text>
-              </View>
+            <View style={styles.loginContainer}>
+              <Text style={[styles.baseText, styles.passwordButtonText]}>
+                Вже є акаунт?&ensp;
+                <TouchableWithoutFeedback onPress={onLogin}>
+                  <Text style={styles.blueText}>Увійти</Text>
+                </TouchableWithoutFeedback>
+              </Text>
             </View>
           </View>
-        </ImageBackground>
+        </View>
       </KeyboardAvoidingView>
     </TouchableWithoutFeedback>
   );
@@ -142,10 +135,6 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     marginTop: 42,
-  },
-  image: {
-    flex: 1,
-    justifyContent: "flex-end",
   },
   formContainer: {
     width: SCREEN_WIDTH,

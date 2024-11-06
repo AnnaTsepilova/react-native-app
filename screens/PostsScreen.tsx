@@ -1,4 +1,7 @@
-//import { useState } from "react";
+import { FC } from "react";
+import { NativeStackScreenProps } from "react-native-screens/lib/typescript/native-stack/types";
+import { StackParamList } from "../navigation/StackNavigator";
+
 import {
   Keyboard,
   KeyboardAvoidingView,
@@ -10,7 +13,9 @@ import {
 
 import { styles } from "../styles/css";
 
-const PostsScreen = () => {
+type HomeScreenProps = NativeStackScreenProps<StackParamList, "PostsScreen">;
+
+const PostsScreen: FC<HomeScreenProps> = (photoPost) => {
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <KeyboardAvoidingView

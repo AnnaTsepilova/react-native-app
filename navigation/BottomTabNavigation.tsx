@@ -3,9 +3,6 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { TouchableOpacity, View } from "react-native";
 
-import Login from "../screens/LoginScreen";
-import RegistrationScreen from "../screens/RegistrationScreen";
-import Home from "../screens/Home";
 import PostsScreen from "../screens/PostsScreen";
 
 import { AntDesign, Ionicons } from "@expo/vector-icons";
@@ -48,7 +45,7 @@ const BottomTabNavigator = () => {
               <MaterialIcons
                 name="logout"
                 size={24}
-                color={colors.underline_grey}
+                color={colors.underline_gray}
                 onPress={() =>
                   navigation.navigate("Login", { screen: "Login" })
                 }
@@ -59,7 +56,7 @@ const BottomTabNavigator = () => {
             <AntDesign
               name="appstore-o"
               size={24}
-              color={focused ? colors.white : colors.underline_grey}
+              color={focused ? colors.white : colors.underline_gray}
             />
           ),
         })}
@@ -76,7 +73,7 @@ const BottomTabNavigator = () => {
               <Ionicons
                 name="arrow-back"
                 size={24}
-                color={colors.underline_grey}
+                color={colors.underline_gray}
               />
             </TouchableOpacity>
           ),
@@ -84,9 +81,10 @@ const BottomTabNavigator = () => {
             <AntDesign
               name="plus"
               size={24}
-              color={focused ? colors.white : colors.underline_grey}
+              color={focused ? colors.white : colors.underline_gray}
             />
           ),
+          tabBarStyle: { display: "none" },
         })}
       />
       <Tab.Screen
@@ -100,7 +98,7 @@ const BottomTabNavigator = () => {
               <MaterialIcons
                 name="logout"
                 size={24}
-                color={colors.underline_grey}
+                color={colors.underline_gray}
                 onPress={() =>
                   navigation.navigate("Login", { screen: "Login" })
                 }
@@ -111,7 +109,7 @@ const BottomTabNavigator = () => {
             <Feather
               name="user"
               size={24}
-              color={focused ? colors.white : colors.underline_grey}
+              color={focused ? colors.white : colors.underline_gray}
             />
           ),
         })}

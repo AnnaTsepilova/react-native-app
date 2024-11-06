@@ -10,7 +10,9 @@ const Stack = createStackNavigator();
 export type StackParamList = {
   Home: undefined; // Якщо екран не приймає параметрів
   Login: undefined;
-  Registration: { userEmail: string }; // Якщо екран приймає параметри
+  Registration: { userEmail: string };
+  CreatePostsScreen: undefined; // Якщо екран приймає параметри
+  PostsScreen: { photoPost: object };
 };
 
 const StackNavigator = () => {

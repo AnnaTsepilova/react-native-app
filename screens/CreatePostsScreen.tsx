@@ -26,10 +26,7 @@ import { styles } from "../styles/css";
 import { colors } from "../styles/global";
 import { useNavigation } from "@react-navigation/native";
 
-type HomeScreenProps = NativeStackScreenProps<
-  StackParamList,
-  "CreatePostsScreen"
->;
+type HomeScreenProps = NativeStackScreenProps<StackParamList, "CreatePost">;
 
 const CreatePostsScreen: FC<HomeScreenProps> = ({}) => {
   const [isShownKeyboard, setIsShownKeyboard] = useState(false);
@@ -82,7 +79,6 @@ const CreatePostsScreen: FC<HomeScreenProps> = ({}) => {
     const { uri } = await camera?.current?.takePictureAsync();
     await MediaLibrary.saveToLibraryAsync(uri);
     setPhoto(uri);
-    console.log("image", uri);
   };
 
   const isAllowed = !!photo && !!title && !!place;
@@ -93,11 +89,8 @@ const CreatePostsScreen: FC<HomeScreenProps> = ({}) => {
       latitude: location.coords.latitude,
       longitude: location.coords.longitude,
     };
-    console.log("coords", coords);
 
-    navigation.navigate("PostsScreen", {
-      photoPost: { photo, title, place, coords },
-    });
+    navigation.navigate("Posts", { photo, title, place, coords });
 
     setTitle("");
     setPhoto(null);

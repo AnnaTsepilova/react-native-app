@@ -30,12 +30,10 @@ const RegistrationScreen: FC<HomeScreenProps> = ({ navigation, route }) => {
 
   const keyboardHide = () => {
     setKeyboardStatus(false);
-    console.log("keyboardStatus :>> ", keyboardStatus);
     Keyboard.dismiss();
   };
 
   const handleInputFocus = (value: boolean) => {
-    console.log("value :>> ", value);
     setKeyboardStatus(value);
   };
 

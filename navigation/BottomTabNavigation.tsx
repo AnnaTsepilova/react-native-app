@@ -1,13 +1,12 @@
 import "react-native-gesture-handler";
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { TouchableOpacity, View } from "react-native";
+import { TouchableOpacity } from "react-native";
 
 import PostsScreen from "../screens/PostsScreen";
 
 import { AntDesign, Ionicons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
-import { MaterialIcons } from "@expo/vector-icons";
 
 import { colors } from "../styles/global";
 import { styles } from "../styles/css";
@@ -19,7 +18,7 @@ const Tab = createBottomTabNavigator(); // вказує на групу наві
 const BottomTabNavigator = () => {
   return (
     <Tab.Navigator
-      initialRouteName="PostsScreen"
+      initialRouteName="Post"
       screenOptions={({ navigation }) => ({
         headerRightContainerStyle: { paddingRight: 16 },
         headerLeftContainerStyle: { paddingLeft: 16 },
@@ -27,7 +26,6 @@ const BottomTabNavigator = () => {
         headerTitleStyle: styles.tabHeaderTitle,
         headerTitleAlign: "center",
         tabBarShowLabel: false,
-        //headerStyle: styles.tabHeader,
         tabBarStyle: styles.tabBar,
         tabBarItemStyle: styles.tabIcon,
         tabBarActiveBackgroundColor: colors.orange,
@@ -35,15 +33,15 @@ const BottomTabNavigator = () => {
       backBehavior="history"
     >
       <Tab.Screen
-        name="PostsScreen"
+        name="Posts"
         component={PostsScreen}
         options={({ navigation }) => ({
           title: "Публікації",
 
           headerRight: () => (
             <TouchableOpacity style={styles.logoutBtn}>
-              <MaterialIcons
-                name="logout"
+              <Feather
+                name="log-out"
                 size={24}
                 color={colors.underline_gray}
                 onPress={() =>
@@ -53,8 +51,8 @@ const BottomTabNavigator = () => {
             </TouchableOpacity>
           ),
           tabBarIcon: ({ focused, color, size }) => (
-            <AntDesign
-              name="appstore-o"
+            <Feather
+              name="grid"
               size={24}
               color={focused ? colors.white : colors.underline_gray}
             />
@@ -63,18 +61,14 @@ const BottomTabNavigator = () => {
       />
 
       <Tab.Screen
-        name="CreatePostsScreen"
+        name="CreatePost"
         component={CreatePostsScreen}
         options={({ navigation }) => ({
           title: "Створити публікацію",
 
           headerLeft: () => (
             <TouchableOpacity onPress={() => navigation.goBack()}>
-              <Ionicons
-                name="arrow-back"
-                size={24}
-                color={colors.underline_gray}
-              />
+              <Ionicons name="arrow-back" size={24} color={colors.black80} />
             </TouchableOpacity>
           ),
           tabBarIcon: ({ focused, color, size }) => (
@@ -88,15 +82,15 @@ const BottomTabNavigator = () => {
         })}
       />
       <Tab.Screen
-        name="ProfileScreen"
+        name="Profile"
         component={ProfileScreen}
         options={({ navigation }) => ({
           title: "",
 
           headerRight: () => (
             <TouchableOpacity style={styles.logoutBtn}>
-              <MaterialIcons
-                name="logout"
+              <Feather
+                name="log-out"
                 size={24}
                 color={colors.underline_gray}
                 onPress={() =>

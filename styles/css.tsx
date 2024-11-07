@@ -13,6 +13,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "flex-end",
+    backgroundColor: colors.white,
   },
   innerContainer: {
     gap: 16,
@@ -123,8 +124,8 @@ export const styles = StyleSheet.create({
     borderTopColor: colors.underline_gray,
     height: 83,
     paddingTop: 9,
-    paddingRight: 70,
-    paddingLeft: 70,
+    paddingBottom: 22,
+    paddingHorizontal: 70,
   },
   tabHeader: {
     borderBottomWidth: 1,
@@ -140,7 +141,7 @@ export const styles = StyleSheet.create({
   tabIcon: {
     width: 70,
     height: 40,
-    borderRadius: 20,
+    borderRadius: 100,
     alignItems: "center",
     justifyContent: "center",
   },
@@ -150,8 +151,7 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.white,
     paddingTop: 32,
     paddingBottom: 34,
-    paddingLeft: 16,
-    paddingRight: 16,
+    paddingHorizontal: 16,
   },
 
   cameraContainer: {
@@ -205,22 +205,6 @@ export const styles = StyleSheet.create({
     color: colors.underline_gray,
   },
 
-  // sendContainer: {
-  //   justifyContent: "center",
-  //   alignItems: "center",
-
-  //   marginTop: 20,
-  //   marginHorizontal: 30,
-  //   height: 40,
-
-  //   borderWidth: 2,
-  //   borderColor: "green",
-  //   borderRadius: 10,
-  // },
-  // sendLabel: {
-  //   color: "green",
-  //   fontSize: 20,
-  // },
   createPostInput: {
     marginBottom: 32,
     paddingBottom: 15,
@@ -266,5 +250,73 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.light_gray,
     borderRadius: 20,
     marginHorizontal: "auto",
+  },
+  postsContainer: {
+    flex: 1,
+    paddingHorizontal: 16,
+    paddingTop: 32,
+    paddingBottom: 34,
+    backgroundColor: colors.white,
+  },
+  // postListContainer: {
+  //   gap: 34,
+  // },
+  postPhoto: {
+    marginBottom: 8,
+    width: "100%",
+    height: 240,
+
+    overflow: "hidden",
+    objectFit: "cover",
+
+    borderRadius: 8,
+  },
+  postTitle: {
+    marginBottom: 11,
+    fontFamily: "Roboto-Medium",
+    fontSize: 16,
+    color: colors.black_primary,
+  },
+  userContainer: {
+    gap: 8,
+    flexDirection: "row",
+    alignItems: "center",
+    width: "100%",
+    marginBottom: 32,
+  },
+  avatarPhoto: {
+    width: 60,
+    height: 60,
+    borderRadius: 16,
+  },
+  userData: {
+    gap: 0,
+  },
+  userName: {
+    color: colors.black_primary,
+    fontFamily: "Roboto-Bold",
+    fontSize: 13,
+  },
+  userEmail: {
+    color: colors.black80,
+    fontFamily: "Roboto-Regular",
+    fontSize: 11,
+  },
+  place: {
+    color: colors.black_primary,
+    fontFamily: "Roboto-Regular",
+    fontSize: 16,
+    marginLeft: 4,
+    textDecorationLine: "underline",
+  },
+  map: {
+    width: "100%",
+    height: "100%",
+  },
+  count: {
+    color: colors.underline_gray,
+    fontFamily: "Roboto-Regular",
+    fontSize: 16,
+    marginLeft: 6,
   },
 });

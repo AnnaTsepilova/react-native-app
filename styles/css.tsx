@@ -5,15 +5,11 @@ const { width: SCREEN_WIDTH } = Dimensions.get("screen");
 export const styles = StyleSheet.create({
   containerForKeyboard: {
     flex: 1,
-    // height: "100%",
-    //alignItems: "center",
-    //justifyContent: "flex-end",
   },
   container: {
     flex: 1,
     alignItems: "center",
     justifyContent: "flex-end",
-    backgroundColor: colors.white,
   },
   innerContainer: {
     gap: 16,
@@ -38,7 +34,6 @@ export const styles = StyleSheet.create({
   },
   formContainer: {
     width: SCREEN_WIDTH,
-    //height: "60%",
     backgroundColor: colors.white,
     borderTopRightRadius: 25,
     borderTopLeftRadius: 25,
@@ -47,7 +42,6 @@ export const styles = StyleSheet.create({
   },
   formContainerLogin: {
     width: SCREEN_WIDTH,
-    //height: "55%",
     backgroundColor: colors.white,
     borderTopRightRadius: 25,
     borderTopLeftRadius: 25,
@@ -71,7 +65,6 @@ export const styles = StyleSheet.create({
   },
   imageBg: {
     flex: 1,
-    //justifyContent: "flex-end",
   },
   image: {
     position: "absolute",
@@ -153,7 +146,6 @@ export const styles = StyleSheet.create({
     paddingBottom: 34,
     paddingHorizontal: 16,
   },
-
   cameraContainer: {
     position: "relative",
     justifyContent: "center",
@@ -166,7 +158,6 @@ export const styles = StyleSheet.create({
     marginBottom: 8,
     overflow: "hidden",
   },
-
   camera: {
     width: "100%",
     height: "100%",
@@ -176,7 +167,6 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-
   takePhotoContainer: {
     position: "absolute",
     top: 10,
@@ -186,7 +176,6 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 10,
   },
-
   photoBtnContainer: {
     position: "absolute",
     justifyContent: "center",
@@ -196,7 +185,6 @@ export const styles = StyleSheet.create({
     height: 60,
     borderRadius: 50,
   },
-
   textUploade: {
     marginBottom: 32,
     fontFamily: "Roboto-Regular",
@@ -204,7 +192,6 @@ export const styles = StyleSheet.create({
     lineHeight: 18.75,
     color: colors.underline_gray,
   },
-
   createPostInput: {
     marginBottom: 32,
     paddingBottom: 15,
@@ -258,9 +245,6 @@ export const styles = StyleSheet.create({
     paddingBottom: 34,
     backgroundColor: colors.white,
   },
-  // postListContainer: {
-  //   gap: 34,
-  // },
   postPhoto: {
     marginBottom: 8,
     width: "100%",

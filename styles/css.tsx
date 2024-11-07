@@ -13,7 +13,6 @@ export const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "flex-end",
-    backgroundColor: colors.white,
   },
   innerContainer: {
     gap: 16,
